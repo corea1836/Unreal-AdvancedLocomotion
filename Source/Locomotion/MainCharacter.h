@@ -20,11 +20,9 @@ public:
 protected:
 	virtual void BeginPlay() override;
 	
-	void MoveForward(float Value);
-	void MoveRight(float Value);
+	void Move(const struct FInputActionValue& Value);
 	
-	void Turn(float Value);
-	void LookUp(float Value);
+	void Look(const FInputActionValue& Value);
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera", meta=(AllowPrivateAccess="true"))
@@ -32,6 +30,18 @@ private:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera", meta=(AllowPrivateAccess="true"))
 	class UCameraComponent* Camera = nullptr;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Input", meta=(AllowPrivateAccess="true"))
+	class UInputMappingContext* DefaultMappingContext;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Input", meta=(AllowPrivateAccess="true"))
+    class UInputAction* JumpAction;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Input", meta=(AllowPrivateAccess="true"))
+	UInputAction* MoveAction;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Input", meta=(AllowPrivateAccess="true"))
+	UInputAction* LookAction;
 
 // getter, setter
 public:	
