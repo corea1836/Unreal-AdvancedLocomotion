@@ -1,6 +1,7 @@
 #include "MainCharacter.h"
 
 #include "Camera/CameraComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
 AMainCharacter::AMainCharacter()
@@ -17,6 +18,13 @@ AMainCharacter::AMainCharacter()
 	Camera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	
 	Camera->bUsePawnControlRotation = false;
+
+	bUseControllerRotationPitch = false;
+	bUseControllerRotationYaw = false;
+	bUseControllerRotationRoll = false; 
+	
+	GetCharacterMovement()->bOrientRotationToMovement = true;
+	GetCharacterMovement()->RotationRate = FRotator(0.f, 500.f, 0.f);
 	
 
 }
