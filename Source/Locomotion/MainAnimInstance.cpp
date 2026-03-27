@@ -28,5 +28,10 @@ void UMainAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 		FRotator MovementRotation = UKismetMathLibrary::MakeRotFromX(MainCharacter->GetVelocity());
 		
 		MovementYawDelta = UKismetMathLibrary::NormalizedDeltaRotator(MovementRotation, BaseAnimRotation).Yaw;
+
+		if (MainCharacter->GetVelocity().Size() > 0.0f)
+		{
+			LastMovementYawDelta = MovementYawDelta;
+		}
 	}
 }
