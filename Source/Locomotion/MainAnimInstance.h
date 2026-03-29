@@ -31,4 +31,17 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Movement", meta=(AllowPrivateAccess=true))
 	float LastMovementYawDelta;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Turn-in Place", meta=(AllowPrivateAccess=true))
+	float RootRotationYaw;
+	
+	float CharacterRotationYaw;
+	
+	float LastCharacterRotationYaw;
+	
+	float IsTurning;
+	
+	float TurningCurve;
+	
+	float LastTurningCurve;
 };
